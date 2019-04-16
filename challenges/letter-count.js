@@ -31,3 +31,33 @@
 */
 
 // YOUR CODE HERE
+
+let str = 'apple'
+
+var countLetters = str.split('').reduce((allLetters, letter) => {
+  letter in allLetters ? allLetters[letter]++ : allLetters[letter] = 1
+  return allLetters
+}, {})
+countLetters
+
+// or
+var result = str.split('').reduce((newObj, el) => {
+  newObj[el] = ++newObj[el] || 1
+  return newObj
+}, {});
+result
+
+// or
+// const countLetters = (str) => {
+//   let newObj = {}
+//   let splStr = str.split('');
+//   for (let i = 0; i < splStr.length; i++) {
+//     if(splStr[i] in newObj) { newObj[splStr[i]] +=1 }
+//     else { newObj[splStr[i]] = 1 }
+//     return newObj
+//   }
+// }
+// countLetters('apple')
+
+
+
