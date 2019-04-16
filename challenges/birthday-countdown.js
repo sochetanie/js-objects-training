@@ -34,3 +34,33 @@
 */
 
 // YOUR CODE HERE
+
+// let people = [
+//     {
+//       name: "Jack",
+//       dob: "10/31/2013"
+//     },
+//     {
+//       name: "Jill",
+//       dob: "4/01/1975"
+//     }
+//   ]
+
+const birthdayReminder = (obj) => {
+  let newArr = []
+
+  obj.forEach(x => {
+    let today = new Date()
+    let birthdayMonth = parseInt(x.dob.split('/')[0])
+    let birthdayDay = parseInt(x.dob.split('/')[1])
+
+    let next = new Date(today.getFullYear(), birthdayMonth,birthdayDay)
+    if (next < today) { next = next.getFullYear()+1}
+    let timeDiff = Math.abs(next.getTime() - today.getTime())
+    let daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24))
+    newArr.push(`${x.name} birthday is in ${daysLeft} days`)
+  })
+  return newArr
+}
+birthdayReminder(people)
+
